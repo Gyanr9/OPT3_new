@@ -15,7 +15,7 @@ public class MainTest{
         ;
 
         // 0 1 0
-        assertEquals(Main.makeOrder(400,mb1,cpu1, gpu1), "Order kan niet geplaatst worden");
+        assertEquals(Main.makeOrder(1500,mb1,cpu1, gpu1), "Order kan niet geplaatst worden");
         // 1 0 0
         assertEquals(Main.makeOrder(1500,mb1,cpu1, gpu1), "Order kan niet geplaatst worden");
         // 1 1 0
