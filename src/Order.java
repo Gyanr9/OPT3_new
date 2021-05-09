@@ -24,8 +24,22 @@ public class Order {
         return CPUorder;
     }
 
+    public Motherboard getMBorder(){
+        return MBorder;
+    }
+    public void setMBorder(Motherboard MBorder) {
+        this.MBorder = MBorder;
+    }
+
     public void setCPUorder(CPU CPUorder) {
         this.CPUorder = CPUorder;
+    }
+    GPU getGPUorder() {
+        return GPUorder;
+    }
+
+    public void setGPUorder(GPU GPUorder) {
+        this.GPUorder = GPUorder;
     }
     public int TotalPrice(){
         return MBorder.getPrice() + CPUorder.getPrice() + GPUorder.getPrice();
