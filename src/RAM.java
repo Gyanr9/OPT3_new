@@ -1,29 +1,33 @@
-public class GPU implements Parts{
+public class RAM implements Parts {
     private String itemName;
     private double price;
+    private int size;
     private int wattage;
 
 
 
-    public GPU(String name, double price, int wattage ){
+
+    public RAM(String name, double price, int size, int wattage) {
         this.itemName = name;
         this.price = price;
         this.wattage = wattage;
-
-
+        this.size = size;
     }
+
+    @Override
     public String getItemName() {
-        return itemName;
+        return this.itemName;
     }
 
     @Override
     public void setItemName(String name) {
+
         this.itemName = itemName;
     }
 
-
+    @Override
     public double getPrice() {
-        return price;
+        return this.price;
     }
 
     @Override
@@ -35,17 +39,15 @@ public class GPU implements Parts{
     public int getWattage() {
         return this.wattage;
     }
+    public int getSize() {
+        return this.size;
+    }
 
+    public void setSize(int size) {
+        this.size = size;
+    }
     @Override
     public void setWattage(int wattage) {
         this.wattage = wattage;
-    }
-
-    @Override
-    public String toString() {
-        return "GPU{" +
-                "itemName='" + itemName + '\'' +
-                ", price=" + price +
-                '}';
     }
 }

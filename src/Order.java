@@ -5,16 +5,18 @@ public class Order {
     private Motherboard MBorder;
     private CPU CPUorder;
     private GPU GPUorder;
+    private PSU PSUorder;
 
 
 
 
-    public Order (int budget, Motherboard MBorder, CPU CPUorder, GPU GPUorder){
+    public Order (int budget, Motherboard MBorder, CPU CPUorder, GPU GPUorder, PSU PSUorder){
         this.orderNr = uniqueOrderNr++;
         this.budget = budget;
         this.MBorder= MBorder;
         this.CPUorder = CPUorder;
         this.GPUorder = GPUorder;
+        this.PSUorder = PSUorder;
     }
     public int getBudget() {
         return budget;
@@ -41,10 +43,20 @@ public class Order {
     public void setGPUorder(GPU GPUorder) {
         this.GPUorder = GPUorder;
     }
-    public int TotalPrice(){
-        return MBorder.getPrice() + CPUorder.getPrice() + GPUorder.getPrice();
+
+    public PSU getPSUorder() {
+        return PSUorder;
+    }
+    public void setPSUorder(PSU PSUorder) {
+        this.PSUorder = PSUorder;
+    }
+    public double TotalPrice(){
+        return MBorder.getPrice() + CPUorder.getPrice() + GPUorder.getPrice() + PSUorder.getPrice();
     }
 
+    public long getOrderNr() {
+        return orderNr;
+    }
     @Override
     public String toString() {
         return "Order{" +
@@ -53,10 +65,9 @@ public class Order {
                 ", MBorder=" + MBorder +
                 ", CPUorder=" + CPUorder +
                 ", GPUorder=" + GPUorder +
+                ", PSUorder=" + PSUorder +
                 '}';
     }
 
-    public long getOrderNr() {
-        return orderNr;
-    }
+
 }

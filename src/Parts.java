@@ -3,7 +3,11 @@ public interface Parts {
 
     void setItemName(String name);
 
-    int getPrice();
+    double getPrice();
 
-    void setPrice(int price);
+    void setPrice(double price);
+
+    int getWattage();
+
+    void setWattage(int wattage);
 }

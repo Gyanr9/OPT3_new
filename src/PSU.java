@@ -1,12 +1,12 @@
 public class PSU implements Parts{
     private String itemName;
-    private int price;
+    private double price;
     private int wattage;
 
 
 
 
-    public PSU(String name, int price, String merk, int wattage ){
+    public PSU(String name, double price, int wattage ){
         this.itemName = name;
         this.price = price;
         this.wattage = wattage;
@@ -22,14 +22,15 @@ public class PSU implements Parts{
     }
 
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
     @Override
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
+
     public int getWattage() {
         return wattage;
     }
