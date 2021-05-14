@@ -18,6 +18,10 @@ public class Main {
         return order.getGPUorder().getPrice() >= order.getTotalPrice() * 0.3;
     }
 
+    public static boolean checkWattage(){
+        return true;
+    }
+
     public static double checkDiscount(Order order) {
         if (order.getTotalPrice() <= 500) {
             return order.getTotalPrice();

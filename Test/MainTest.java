@@ -101,8 +101,72 @@ public class MainTest{
         // 1002 euro = 15 % korting
         assertEquals(851.70,Main.checkDiscount(order1),0.001);
     }
+    /*
+    *Parameter 1 hoeveelheidkorting : 0%, 10%, 15%
+    *Parameter 2 chipset type CPU & MB : AMD, Intel
+    *Parameter 3 Budget groot genoeg : Waar, niet waar
+    *Parameter 4 PSU genoeg watt : Waar, niet waar
+    *
+    * */
+    @Test
+    public void PWTest1(){
+        Motherboard mb1 = new Motherboard("Gigabyte Z390", 150.0,"Intel",0);
+        CPU cpu1 = new CPU("Intel I5 9600K",250, "Intel",3.7 ,0);
+        GPU gpu1 = new GPU("Evga Geforce RTX 2060", 352,0);
+        PSU psu1 = new PSU("Coolermaster 360x", 250, 0);
+        Order order1 = new Order(1100,mb1,cpu1,gpu1,psu1);
+        // 0% korting AMD Waar Waar
+    }
 
+    @Test
+    public void PWTest2(){
+        Motherboard mb1 = new Motherboard("Gigabyte Z390", 150.0,"Intel",0);
+        CPU cpu1 = new CPU("Intel I5 9600K",250, "Intel",3.7 ,0);
+        GPU gpu1 = new GPU("Evga Geforce RTX 2060", 352,0);
+        PSU psu1 = new PSU("Coolermaster 360x", 250, 0);
+        Order order1 = new Order(1100,mb1,cpu1,gpu1,psu1);
+        // 0% korting Intel Niet Waar Niet Waar
+    }
 
+    @Test
+    public void PWTest3(){
+        Motherboard mb1 = new Motherboard("Gigabyte Z390", 150.0,"Intel",0);
+        CPU cpu1 = new CPU("Intel I5 9600K",250, "Intel",3.7 ,0);
+        GPU gpu1 = new GPU("Evga Geforce RTX 2060", 352,0);
+        PSU psu1 = new PSU("Coolermaster 360x", 250, 0);
+        Order order1 = new Order(1100,mb1,cpu1,gpu1,psu1);
+        // 10% korting AMD Niet Waar Waar
+    }
+
+    @Test
+    public void PWTest4(){
+        Motherboard mb1 = new Motherboard("Gigabyte Z390", 150.0,"Intel",0);
+        CPU cpu1 = new CPU("Intel I5 9600K",250, "Intel",3.7 ,0);
+        GPU gpu1 = new GPU("Evga Geforce RTX 2060", 352,0);
+        PSU psu1 = new PSU("Coolermaster 360x", 250, 0);
+        Order order1 = new Order(1100,mb1,cpu1,gpu1,psu1);
+        // 10% korting Intel Waar Niet Waar
+    }
+
+    @Test
+    public void PWTest5(){
+        Motherboard mb1 = new Motherboard("Gigabyte Z390", 150.0,"Intel",0);
+        CPU cpu1 = new CPU("Intel I5 9600K",250, "Intel",3.7 ,0);
+        GPU gpu1 = new GPU("Evga Geforce RTX 2060", 352,0);
+        PSU psu1 = new PSU("Coolermaster 360x", 250, 0);
+        Order order1 = new Order(1100,mb1,cpu1,gpu1,psu1);
+        // 15% korting AMD Waar  Niet Waar
+    }
+
+    @Test
+    public void PWTest6(){
+        Motherboard mb1 = new Motherboard("Gigabyte Z390", 150.0,"Intel",0);
+        CPU cpu1 = new CPU("Intel I5 9600K",250, "Intel",3.7 ,0);
+        GPU gpu1 = new GPU("Evga Geforce RTX 2060", 352,0);
+        PSU psu1 = new PSU("Coolermaster 360x", 250, 0);
+        Order order1 = new Order(1100,mb1,cpu1,gpu1,psu1);
+        // 15% korting Intel Niet Waar  Waar
+    }
 
 
 

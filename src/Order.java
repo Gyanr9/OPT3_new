@@ -7,9 +7,7 @@ public class Order {
     private GPU GPUorder;
     private PSU PSUorder;
     private double totalPrice;
-
-
-
+    private int totalWattage;
 
     public Order (int budget, Motherboard MBorder, CPU CPUorder, GPU GPUorder, PSU PSUorder){
         this.orderNr = uniqueOrderNr++;
@@ -63,6 +61,12 @@ public class Order {
     public long getOrderNr() {
         return orderNr;
     }
+
+    public int getTotalWattage(){
+        this.totalWattage = MBorder.getWattage() + CPUorder.getWattage() + GPUorder.getWattage();
+        return totalWattage;
+    }
+
     @Override
     public String toString() {
         return "Order{" +
