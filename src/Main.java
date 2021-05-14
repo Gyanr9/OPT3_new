@@ -1,24 +1,36 @@
 public class Main {
 
 
-    public static boolean makeOrder(int budget , Motherboard Mb,CPU cpu, GPU gpu, PSU psu ){
-        Order order = new Order(budget,Mb, cpu, gpu, psu);
+    public static boolean makeOrder(int budget, Motherboard Mb, CPU cpu, GPU gpu, PSU psu) {
+        Order order = new Order(budget, Mb, cpu, gpu, psu);
         return (checkMerk(order)) && (!checkBudget(order)) && (checkGPUPrice(order));
     }
 
-    public static boolean checkBudget(Order order){
-        return order.TotalPrice() > order.getBudget();
+    public static boolean checkBudget(Order order) {
+        return order.getTotalPrice() > order.getBudget();
     }
 
-    public static  boolean checkMerk(Order order){
+    public static boolean checkMerk(Order order) {
         return order.getCPUorder().getMerk().equals(order.getMBorder().getMerk());
     }
-    public static  boolean checkGPUPrice(Order order){
-        return order.getGPUorder().getPrice() >= order.TotalPrice() * 0.3 ;
+
+    public static boolean checkGPUPrice(Order order) {
+        return order.getGPUorder().getPrice() >= order.getTotalPrice() * 0.3;
     }
-    public static double checkTotalPrice(Order order){
-        return 0.0;
+
+    public static double checkDiscount(Order order) {
+        if (order.getTotalPrice() <= 500) {
+            return order.getTotalPrice();
+        } else if (order.getTotalPrice() > 500 && order.getTotalPrice() <= 1000) {
+            return order.getTotalPrice() * 0.9;
+        } else if (order.getTotalPrice() > 1000) {
+            return order.getTotalPrice() * 0.85;
+        }
+        else {
+            return 0.0;
+        }
     }
+
 
     public static void main(String[] args) {
        /* Motherboard mb1 = new Motherboard("Gigabyte Z390", 500,"Intel");

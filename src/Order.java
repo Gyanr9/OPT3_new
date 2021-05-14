@@ -6,6 +6,7 @@ public class Order {
     private CPU CPUorder;
     private GPU GPUorder;
     private PSU PSUorder;
+    private double totalPrice;
 
 
 
@@ -50,8 +51,13 @@ public class Order {
     public void setPSUorder(PSU PSUorder) {
         this.PSUorder = PSUorder;
     }
-    public double TotalPrice(){
-        return MBorder.getPrice() + CPUorder.getPrice() + GPUorder.getPrice() + PSUorder.getPrice();
+    public double getTotalPrice(){
+        this.totalPrice = MBorder.getPrice() + CPUorder.getPrice() + GPUorder.getPrice() + PSUorder.getPrice();
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double price){
+        this.totalPrice = price;
     }
 
     public long getOrderNr() {
