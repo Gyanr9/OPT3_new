@@ -3,7 +3,7 @@ public class Main {
 
     public static boolean makeOrder(int budget, Motherboard Mb, CPU cpu, GPU gpu, PSU psu) {
         Order order = new Order(budget, Mb, cpu, gpu, psu);
-        return (checkMerk(order)) && (!checkBudget(order)) && (checkGPUPrice(order));
+        return (checkMerk(order)) && (!checkBudget(order)) && (checkGPUPrice(order) &&(checkWattage(order)));
     }
 
     public static boolean checkBudget(Order order) {
@@ -14,12 +14,14 @@ public class Main {
         return order.getCPUorder().getMerk().equals(order.getMBorder().getMerk());
     }
 
+    // Deze method checkt of de GPU 30% van de het totaal bedrag is.
     public static boolean checkGPUPrice(Order order) {
         return order.getGPUorder().getPrice() >= order.getTotalPrice() * 0.3;
     }
 
-    public static boolean checkWattage(){
-        return true;
+    // Deze method kijkt of de PSU genoeg wattage heeft voor de componenten. Geeft true door als psu genoeg wattage.
+    public static boolean checkWattage(Order order){
+        return order.getPSUorder().getWattage() > order.getTotalWattage();
     }
 
     public static double checkDiscount(Order order) {
