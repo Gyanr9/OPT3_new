@@ -1,4 +1,7 @@
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 public class Main {
+    private static DecimalFormat df2 =  new DecimalFormat("#.##");
 
 
     public static boolean makeOrder(int budget, Motherboard Mb, CPU cpu, GPU gpu, PSU psu) {
@@ -39,13 +42,12 @@ public class Main {
 
 
     public static void main(String[] args) {
-       /* Motherboard mb1 = new Motherboard("Gigabyte Z390", 500,"Intel");
-        Motherboard mb2 = new Motherboard("Gigabyte B550", 500,"AMD");
-        CPU cpu1 = new CPU("Intel I5 9600K",200, "Intel",3.7 );
-        CPU cpu2 = new CPU("Ryzen 5 3600",200, "AMD",4.2 );
-        GPU gpu1 = new GPU("Evga Geforce RTX 2060", 300);
-       System.out.println(checkGPUPrice(new Order(500,mb2,cpu2, gpu1)));
-*/
+        Motherboard mb1 = new Motherboard("Gigabyte Z390", 150.0,"Intel",0);
+        CPU cpu1 = new CPU("Intel I5 9600K",250, "Intel",3.7 ,0);
+        GPU gpu1 = new GPU("Evga Geforce RTX 2060", 352,0);
+        PSU psu1 = new PSU("Coolermaster 360x", 250, 0);
+        Order order1 = new Order(1100,mb1,cpu1,gpu1,psu1);
+        Customer c1 = new Customer("Gyan","teststraat 11", "2525 DV","Den Haag");
     }
 }
 
