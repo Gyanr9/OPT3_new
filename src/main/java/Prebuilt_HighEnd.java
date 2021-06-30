@@ -12,7 +12,7 @@ public class Prebuilt_HighEnd extends Prebuilt_Template {
 
     @Override
     public void getInfo() {
-        System.out.println("Dit is een duur model waar je alle game die je maar wilt spelen op de hoogste graphics kan spelen.");
+        System.out.println("Dit is een duur model waar je alle games die je maar wilt spelen op de hoogste graphics kan spelen.");
     }
 
     @Override

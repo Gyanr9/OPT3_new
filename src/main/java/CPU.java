@@ -5,9 +5,6 @@ public class CPU implements Parts {
     private double boostclock;
     private int wattage;
 
-
-
-
     public CPU(String name, double price, String merk, double boostclock, int wattage ){
         this.itemName = name;
         this.price = price;

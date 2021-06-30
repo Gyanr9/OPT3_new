@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Customer {
 
     private Login login;
@@ -6,6 +8,7 @@ public class Customer {
     private String address;
     private String zipcode;
     private String city;
+    private ArrayList<Order> orders = new ArrayList<>();
 
     public Customer (String name, String address, String zipcode, String city) {
 
@@ -19,6 +22,10 @@ public class Customer {
         }
     }
 
+    public String getName(){
+        return this.name;
+    }
+
     @Override
     public String toString() {
 
@@ -27,5 +34,13 @@ public class Customer {
         }
 
         return "";
+    }
+
+    public void addOrder(Order order){
+        orders.add(order);
+    }
+
+    public ArrayList<Order> getOrders() {
+        return orders;
     }
 }
