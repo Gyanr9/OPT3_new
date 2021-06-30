@@ -21,7 +21,7 @@ public class Order {
         return budget;
     }
 
-     public CPU getCPUorder() {
+    public CPU getCPUorder() {
         return CPUorder;
     }
 

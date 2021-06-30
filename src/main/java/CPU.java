@@ -11,8 +11,6 @@ public class CPU implements Parts {
         this.merk = merk;
         this.boostclock = boostclock;
         this.wattage =  wattage;
-
-
     }
     public String getItemName() {
         return itemName;
