@@ -6,6 +6,7 @@ import java.text.DecimalFormat;
 public class Main {
     private static Login login;
     private static final DecimalFormat df = new DecimalFormat("###.##");
+    private static Object PreBuilt_LowEnd;
 
     public static boolean makeOrder(int budget, Motherboard Mb, CPU cpu, GPU gpu, PSU psu) {
         Order order = new Order(budget, Mb, cpu, gpu, psu);
@@ -50,73 +51,95 @@ public class Main {
 
         ArrayList<Parts> parts =  new ArrayList<>();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Wat het is het budget dat u in gedachte heeft?");
-        int budget = sc.nextInt();
-        System.out.println("Welke CPU wilt u voor uw built?");
-        System.out.println("Type 1 voor Intel I5 9600k <======> Type 2 voor AMD 5 3600");
+        System.out.println("Wilt u een vooraf samengestelde PC bestellen type 1 <======> Wilt u zelf een PC samenstellen type 2");
         switch(sc.nextInt()){
             case 1:
-                CPU cpu1 = new CPU("Intel I5 9600K",250, "Intel",3.7 ,75);
-                finalCPU = cpu1;
-                break;
+                System.out.println("Voor een low-end pc voor onder de 1000 euro type 1");
+                System.out.println("Voor een high-end pc voor onder de 2500 euro type 2");
+                switch (sc.nextInt()){
+                    case 1:
+                        Motherboard mblow = new Motherboard("Gigabyte Z390", 150.0,"Intel",75);
+                        CPU cpulow = new CPU("Intel I5 9600K",150, "Intel",3.7 ,100);
+                        GPU gpulow = new GPU("Evga Geforce RTX 2060", 352,250);
+                        PSU psulow = new PSU("Coolermaster MWE 650", 80, 650);
+                        customer.addOrder(new Order(1000, mblow, cpulow, gpulow,psulow));
+                        menu(customer);
+                    case 2:
+                        Motherboard mbhigh = new Motherboard("Gigabyte x570", 200,"AMD",100);
+                        CPU cpuhigh = new CPU("AMD Ryzen 9 5900x",1000, "AMD",3.7 ,100);
+                        GPU gpuhigh = new GPU("Geforce RTX 3070", 899,300);
+                        PSU psuhigh = new PSU("Corsair 750 ", 100, 750);
+                        customer.addOrder(new Order(2500, mbhigh, cpuhigh, gpuhigh,psuhigh));
+                        menu(customer);
+                }
             case 2:
-                CPU cpu2 = new CPU("AMD Ryzen 5 3600",150.0, "AMD",4.2 ,75);
-                finalCPU = cpu2;
-                break;
-        }
-        System.out.println("Welke Motherboard wilt u voor uw built?");
-        System.out.println("Type 1 voor Gigabyte Z390 (Intel motherboard) <======> Type 2 voor Gigabyte B550 (AMD Motherboard)");
-        switch(sc.nextInt()){
-            case 1:
-                Motherboard mb1 = new Motherboard("Gigabyte Z390", 150.0,"Intel",0);
-                finalMB = mb1;
-                break;
-            case 2:
-                Motherboard mb2 = new Motherboard("Gigabyte B550", 100.0,"AMD",50);
-                finalMB = mb2;
-                break;
-        }
-        System.out.println("Welke GPU wilt u voor uw built?");
-        System.out.println("Type 1 voor Evga Geforce RTX 2060 <======> Type 2 voor AMD Radeon 5600");
-        switch(sc.nextInt()){
-            case 1:
-                GPU gpu1 = new GPU("Evga Geforce RTX 2060", 352,150);
-                finalGPU = gpu1;
-                break;
-            case 2:
-                GPU gpu2 = new GPU("AMD Radeon 5600", 400,200);
-                finalGPU = gpu2;
-                break;
-        }
-        System.out.println("Welke Power supply wilt u voor uw built?");
-        System.out.println("Type 1 voor Coolermaster MWE Gold 650<======> Type 2 voor Corsair 750");
-        switch(sc.nextInt()){
-            case 1:
-                PSU psu1 = new PSU("Coolermaster MWE Gold 650", 100, 650);
-                finalPSU = psu1;
-                break;
-            case 2:
-                PSU psu2 = new PSU("Corsair 750", 100,750);
-                finalPSU = psu2;
-                break;
-        }
-        System.out.println("");
-        System.out.println("================================");
-        System.out.println("Uw order word verwerkt!");
-        System.out.println("");
+                System.out.println("Wat het is het budget dat u in gedachte heeft?");
+                int budget = sc.nextInt();
+                System.out.println("Welke CPU wilt u voor uw built?");
+                System.out.println("Type 1 voor Intel I5 9600k <======> Type 2 voor AMD 5 3600");
+                switch(sc.nextInt()){
+                    case 1:
+                        CPU cpu1 = new CPU("Intel I5 9600K",250, "Intel",3.7 ,75);
+                        finalCPU = cpu1;
+                        break;
+                    case 2:
+                        CPU cpu2 = new CPU("AMD Ryzen 5 3600",150.0, "AMD",4.2 ,75);
+                        finalCPU = cpu2;
+                        break;
+                }
+                System.out.println("Welke Motherboard wilt u voor uw built?");
+                System.out.println("Type 1 voor Gigabyte Z390 (Intel motherboard) <======> Type 2 voor Gigabyte B550 (AMD Motherboard)");
+                switch(sc.nextInt()){
+                    case 1:
+                        Motherboard mb1 = new Motherboard("Gigabyte Z390", 150.0,"Intel",0);
+                        finalMB = mb1;
+                        break;
+                    case 2:
+                        Motherboard mb2 = new Motherboard("Gigabyte B550", 100.0,"AMD",50);
+                        finalMB = mb2;
+                        break;
+                }
+                System.out.println("Welke GPU wilt u voor uw built?");
+                System.out.println("Type 1 voor Evga Geforce RTX 2060 <======> Type 2 voor AMD Radeon 5600");
+                switch(sc.nextInt()){
+                    case 1:
+                        GPU gpu1 = new GPU("Evga Geforce RTX 2060", 352,150);
+                        finalGPU = gpu1;
+                        break;
+                    case 2:
+                        GPU gpu2 = new GPU("AMD Radeon 5600", 400,200);
+                        finalGPU = gpu2;
+                        break;
+                }
+                System.out.println("Welke Power supply wilt u voor uw built?");
+                System.out.println("Type 1 voor Coolermaster MWE Gold 650<======> Type 2 voor Corsair 750");
+                switch(sc.nextInt()){
+                    case 1:
+                        PSU psu1 = new PSU("Coolermaster MWE Gold 650", 100, 650);
+                        finalPSU = psu1;
+                        break;
+                    case 2:
+                        PSU psu2 = new PSU("Corsair 750", 100,750);
+                        finalPSU = psu2;
+                        break;
+                }
+                System.out.println("");
+                System.out.println("================================");
+                System.out.println("Uw order word verwerkt!");
+                System.out.println("");
 
-        if (makeOrder(budget, finalMB, finalCPU, finalGPU, finalPSU)){
-            customer.addOrder(new Order(budget, finalMB, finalCPU, finalGPU, finalPSU));
-            System.out.println("Het totaal bedrag van de order komt uit op : " + df.format(checkDiscount(new Order(budget, finalMB, finalCPU, finalGPU, finalPSU)))+ " euro");
-            System.out.println("");
-            menu(customer);
+                if (makeOrder(budget, finalMB, finalCPU, finalGPU, finalPSU)){
+                    customer.addOrder(new Order(budget, finalMB, finalCPU, finalGPU, finalPSU));
+                    System.out.println("Het totaal bedrag van de order komt uit op : " + df.format(checkDiscount(new Order(budget, finalMB, finalCPU, finalGPU, finalPSU)))+ " euro");
+                    System.out.println("");
+                    menu(customer);
+                }
+                else{
+                    System.out.println("Er zit een fout in uw order, probeer het opnieuw.");
+                    System.out.println("");
+                    insertOrder(customer);
+                }
         }
-        else{
-            System.out.println("Er zit een fout in uw order, probeer het opnieuw.");
-            System.out.println("");
-            insertOrder(customer);
-        }
-
     }
     public static void menu (Customer customer){
         Scanner sc = new Scanner(System.in);
@@ -151,6 +174,7 @@ public class Main {
         // username Kees1 , wachtwoord: wachtwoord1
         Customer c1 = new Customer("Kees","Teststraat 22","2821 DV","Den Haag");
         menu(c1);
+
     }
 }
 

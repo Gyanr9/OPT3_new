@@ -6,7 +6,7 @@ public class PreBuilt_LowEnd extends Prebuilt_Template {
 
     @Override
     public void getParts() {
-        System.out.println("Low end parts enz...");
+        System.out.println("Low end parts");
     }
 
 

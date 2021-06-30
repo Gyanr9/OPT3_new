@@ -9,7 +9,6 @@ public class Prebuilt_HighEnd extends Prebuilt_Template {
         System.out.println("High end parts zijn enz...");
     }
 
-
     @Override
     public void getInfo() {
         System.out.println("Dit is een duur model waar je alle games die je maar wilt spelen op de hoogste graphics kan spelen.");

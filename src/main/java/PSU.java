@@ -38,4 +38,13 @@ public class PSU implements Parts{
     public void setWattage(int wattage) {
         this.wattage = wattage;
     }
+
+    @Override
+    public String toString() {
+        return "PSU{" +
+                "itemName='" + itemName + '\'' +
+                ", price=" + price +
+                ", wattage=" + wattage +
+                '}';
+    }
 }
